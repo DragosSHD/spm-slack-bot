@@ -25,4 +25,14 @@ exports.publishMessage = async (id, text) => {
     catch (error) {
         console.error(error);
     }
-}
+};
+
+exports.createChannel = async (name) => {
+    try {
+        return await app.client.conversations.create({ name });
+    }
+    catch (error) {
+        console.error(error);
+        return error.data;
+    }
+};

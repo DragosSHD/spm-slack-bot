@@ -5,8 +5,8 @@ const router = require("./app/routes/router.js");
 
 require("dotenv").config();
 app.use(parser.json());
-app.use("/api/v1", router);
 
+app.use("/api/v1", router);
 app.use((req, res) => {
     res.status(404).send(
         "<h1>404 - Not Found</h1>");

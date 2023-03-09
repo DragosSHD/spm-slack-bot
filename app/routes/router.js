@@ -1,10 +1,10 @@
-const { publishMessage } = require("../util/slack.js");
+const {createChannel} = require("../controllers/slack.controller.js");
 const router = require("express").Router();
 
 
-router.post("/", async (req, res) => {
-   console.log('hey!');
-   await publishMessage("C04SPF6PVRB", "Hello from API!");
+router.post("/create-channel", createChannel);
+
+router.get("/", async (req, res) => {
    res.status(200).send();
 });
 
