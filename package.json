@@ -24,6 +24,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "firebase": "^9.17.2",
-    "nodemon": "^2.0.21"
+    "nodemon": "^2.0.21",
+    "websocket": "^1.0.34"
   }
 }

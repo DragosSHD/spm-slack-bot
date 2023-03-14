@@ -8,22 +8,6 @@ const app = new App({
     signingSecret: process.env.SLACK_APP_SIGNING_TOKEN,
 });
 
-
-app.event('member_joined_channel', async ({ event }) => {
-    try {
-        console.log(`User ${event.user} joined the channel ${event.channel}`);
-    } catch (error) {
-        console.error(error);
-    }
-});
-
-(async () => {
-    // Start your app
-    const boltPORT = 5000;
-    await app.start(boltPORT);
-    console.log(`⚡️ Bolt app is running on port ${boltPORT}!`);
-})();
-
 exports.publishMessage = async (id, text) => {
     try {
         // Call the chat.postMessage method using the built-in WebClient

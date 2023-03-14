@@ -27,6 +27,22 @@ exports.createChannel = async (req, res) => {
     res.status(200).send();
 };
 
+exports.manageEvent = async (req, res) => {
+    const data = req.body;
+    if (!Object.keys(data).length) {
+        res.status(400).send();
+        return;
+    }
+    if (data.token !== process.env.SLACK_VERIFICATION_TOKEN) {
+        res.status(401).send();
+        return;
+    }
+    if (data.type === 'url_verification') {
+        res.json({challenge: data.challenge}).send(200);
+    }
+    res.status(200).send();
+};
+
 
 
 
