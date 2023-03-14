@@ -5,7 +5,7 @@ const firestore = require("firebase/firestore");
 
 exports.createChannel = async (req, res) => {
     const data = req.body;
-    if (!data.name) {
+    if (!data.name || !data.num) {
         res.status(400).send();
         return;
     }
@@ -20,8 +20,10 @@ exports.createChannel = async (req, res) => {
     await firestore.setDoc(newDoc, {
         id: newDoc.id,
         name: result.channel.name,
-        participants: 0
+        participants: 0,
+        limitToNo: data.num
     });
+    console.log(data);
     res.status(200).send();
 };
 
